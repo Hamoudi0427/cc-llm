@@ -8,12 +8,11 @@ export class CcLlmStack extends cdk.Stack {
     super(scope, id, props);
 
     new CodePipeline(this, 'Pipeline', {
-      pipelineName: "test pipeline",
+      pipelineName: "test",
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.gitHub("Hamoudi0427/cc-llm", "main"),
         commands: ['npm ci', 'npm run build', 'npx cdk synth']
       })
     })
-
   }
 }
